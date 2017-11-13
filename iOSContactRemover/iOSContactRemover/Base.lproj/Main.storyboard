@@ -139,6 +139,11 @@
                                 <action selector="touchedUpInsideClose:" destination="tlx-Xf-nbs" id="ucM-aH-mfb"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="LEr-sH-Gzm">
+                            <connections>
+                                <action selector="touchedUpInsideDeelteAll:" destination="tlx-Xf-nbs" id="hJC-be-fwp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVR-3m-tLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
