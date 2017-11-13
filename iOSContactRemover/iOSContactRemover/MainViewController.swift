@@ -29,7 +29,7 @@ class MainViewController: UITableViewController {
     }
     
     private func showSourceListViewController() {
-        self.performSegue(withIdentifier: "show_source", sender: nil)
+        self.performSegue(withIdentifier: "show_containers", sender: nil)
     }
     
     private func requestAuthorization(completion: @escaping ((Bool) -> Void)) {
