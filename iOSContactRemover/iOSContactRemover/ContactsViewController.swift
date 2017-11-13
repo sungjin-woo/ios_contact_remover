@@ -34,6 +34,12 @@ class ContactsViewController: UITableViewController {
         
         self.loadContact()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setToolbarHidden(false, animated: false)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -58,7 +64,7 @@ class ContactsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if self.contacts.count > indexPath.row {
+        if !self.isEditing && self.contacts.count > indexPath.row {
             let contact = self.contacts[indexPath.row]
             let alert = UIAlertController(title: nil, message: "The contact \"\(contact.displayName)\" will be removed.\nContinue?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -84,6 +90,20 @@ class ContactsViewController: UITableViewController {
         vc.containerIdentifier = self.containerIdentifier
     }
     
+    // MARK: - IBAction
+    
+    @IBAction func touchedUpInsideDeleteAll(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: "All the contacts in the container will be removed.\nContinue?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Delete All", style: .destructive, handler: {
+            [weak self] action in
+            
+            self?.requestDeleteAllContact()
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: - Contact
     private func loadContact() {
         let predicate = CNContact.predicateForContactsInContainer(withIdentifier: self.containerIdentifier)
@@ -97,17 +117,27 @@ class ContactsViewController: UITableViewController {
     }
     
     private func requestDeleteContact(_ contact: CNContact) {
-        
-        guard let deleteContact = contact.mutableCopy() as? CNMutableContact else {
-            return
-        }
-        
+        self.requestDeleteContacts([contact])
+    }
+    
+    private func requestDeleteAllContact() {
+        self.requestDeleteContacts(self.contacts)
+    }
+    
+    private func requestDeleteContacts(_ contacts: [CNContact]) {
         let request = CNSaveRequest()
-        request.delete(deleteContact)
+        
+        contacts.forEach { contact in
+            guard let cn = contact.mutableCopy() as? CNMutableContact else {
+                return
+            }
+            
+            request.delete(cn)
+        }
         
         do {
             try self.store.execute(request)
-            print("Success, Contact delete : \(contact)")
+            print("Success, Contacts are deleted : \(contacts)")
             
             self.loadContact()
             self.tableView.reloadData()

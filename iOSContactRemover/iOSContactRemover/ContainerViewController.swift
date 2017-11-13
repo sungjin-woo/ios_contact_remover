@@ -46,6 +46,8 @@ class ContainerViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.navigationController?.setToolbarHidden(true, animated: false)
+        
         do {
             let containers = try self.store.containers(matching: nil)
             self.containers = containers

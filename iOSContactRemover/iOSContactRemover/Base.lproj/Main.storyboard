@@ -166,7 +166,7 @@
             <objects>
                 <tableViewController id="Uhh-HF-r0l" customClass="ContactsViewController" customModule="ContactRemover" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eS3-aZ-E7b">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -193,6 +193,14 @@
                             <outlet property="delegate" destination="Uhh-HF-r0l" id="rYW-th-GfV"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem systemItem="trash" id="fB3-gq-qCr">
+                            <connections>
+                                <action selector="touchedUpInsideDeleteAll:" destination="Uhh-HF-r0l" id="x4W-dc-uho"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="xlP-fY-b6i"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="LZU-9U-DBQ">
                         <barButtonItem key="rightBarButtonItem" title="Groups" id="ZwF-io-EIN">
                             <connections>
@@ -200,6 +208,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16L-km-6ot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
