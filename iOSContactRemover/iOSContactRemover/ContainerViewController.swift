@@ -36,6 +36,8 @@ class ContainerViewController: UITableViewController {
     let store = CNContactStore()
     
     var containers = [CNContainer]()
+    
+    var selectedIdentifier: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,5 +73,27 @@ class ContainerViewController: UITableViewController {
         }
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if self.containers.count > indexPath.row {
+            let container = self.containers[indexPath.row]
+            
+            self.selectedIdentifier = container.identifier
+            
+            self.performSegue(withIdentifier: "show_contacts", sender: nil)
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let vc = segue.destination as? ContactsViewController else {
+            return
+        }
+        
+        vc.containerIdentifier = self.selectedIdentifier
+        self.selectedIdentifier = ""
     }
 }
