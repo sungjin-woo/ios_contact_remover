@@ -11,7 +11,6 @@ import Contacts
 extension CNContact {
     var displayName: String {
         
-        
         let formatter = CNContactFormatter()
         formatter.style = .fullName
         
@@ -69,14 +68,13 @@ class ContactsViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
    
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        guard let navigation = segue.destination as? UINavigationController,
+              let vc = navigation.visibleViewController as? GroupsViewController else {
+                return
+        }
+        
+        vc.containerIdentifier = self.containerIdentifier
     }
-    */
-
 }

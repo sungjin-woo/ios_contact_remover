@@ -14,6 +14,7 @@
 		B2C624211FB93A3B00916F73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2C6241F1FB93A3B00916F73 /* LaunchScreen.storyboard */; };
 		B2C6242B1FB940EB00916F73 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C6242A1FB940EB00916F73 /* ContainerViewController.swift */; };
 		B2C6242D1FB947A000916F73 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C6242C1FB947A000916F73 /* ContactsViewController.swift */; };
+		B2C6242F1FB95AEE00916F73 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C6242E1FB95AEE00916F73 /* GroupsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		B2C624291FB93B7D00916F73 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		B2C6242A1FB940EB00916F73 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		B2C6242C1FB947A000916F73 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		B2C6242E1FB95AEE00916F73 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				B2C624161FB93A3B00916F73 /* AppDelegate.swift */,
 				B2C6242C1FB947A000916F73 /* ContactsViewController.swift */,
 				B2C6242A1FB940EB00916F73 /* ContainerViewController.swift */,
+				B2C6242E1FB95AEE00916F73 /* GroupsViewController.swift */,
 				B2C624181FB93A3B00916F73 /* MainViewController.swift */,
 				B2C6241D1FB93A3B00916F73 /* Assets.xcassets */,
 				B2C6241F1FB93A3B00916F73 /* LaunchScreen.storyboard */,
@@ -155,6 +158,7 @@
 				B2C6242D1FB947A000916F73 /* ContactsViewController.swift in Sources */,
 				B2C624171FB93A3B00916F73 /* AppDelegate.swift in Sources */,
 				B2C6242B1FB940EB00916F73 /* ContainerViewController.swift in Sources */,
+				B2C6242F1FB95AEE00916F73 /* GroupsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
